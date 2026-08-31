@@ -1,6 +1,6 @@
 #[[
-inference_engine CMake module. Each subdirectory under src/ contributes its own
-source list via engine_add_sources, so adding a file touches only that module's
+engine CMake module. Each subdirectory under src/ contributes its own source
+list via engine_add_sources, so adding a file touches only that module's
 CMakeLists.txt. Release flags mirror the ones used in the matrix-multiplication
 write-up so the tuned GEMM kernels get vectorized.
 ]]

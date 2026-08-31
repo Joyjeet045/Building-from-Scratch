@@ -1,6 +1,6 @@
 #[[
-Root CMake build script: wires together the engine library/executable and
-the test suite.
+Project CMake script for the inference engine: wires together the engine
+library, the CLI executable, and the test suite.
 ]]
 cmake_minimum_required(VERSION 3.15)
 project(InferenceEngine CXX)
@@ -18,7 +18,7 @@ endif()
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 
-add_subdirectory(inference_engine)
+add_subdirectory(engine)
 
 enable_testing()
 add_subdirectory(tests)
