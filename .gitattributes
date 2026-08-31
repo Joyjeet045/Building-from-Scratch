@@ -1,0 +1,5 @@
+# Go tooling normalizes to LF; without this, checkouts on Windows produce
+# CRLF and every file shows up as unformatted under `gofmt -l`.
+*.go text eol=lf
+go.mod text eol=lf
+go.sum text eol=lf

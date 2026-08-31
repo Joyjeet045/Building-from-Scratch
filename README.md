@@ -6,6 +6,7 @@ its own self-contained folder with its own build, tests, and write-up.
 | Project | Description | Language |
 | --- | --- | --- |
 | [inference-engine](inference-engine) | A CPU neural-network inference engine: computation graph, wavefront-parallel scheduler, graph optimizer, tuned GEMM kernels, and an HTTP serving layer with dynamic batching. Runs MNIST at 98.11% accuracy and ~42k inferences/sec with no external C++ dependencies. | C++17 |
+| [mapreduce](mapreduce) | A MapReduce framework: pull-based scheduling over RPC, spill-to-disk mappers, combiners, streaming k-way merge, and fault tolerance including backup tasks for stragglers. Standard library only. | Go |
 
 Each project stands alone — `cd` into it and follow its README.
 
@@ -14,4 +15,9 @@ cd inference-engine
 cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 cmake --build build
 .\build\bin\engine_tests.exe
+```
+
+```powershell
+cd mapreduce
+go test ./... -race
 ```

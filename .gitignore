@@ -1,6 +1,8 @@
 # Patterns below have no leading slash, so they apply at every project depth.
 
 build/
+bin/
+work/
 .venv/
 compile_commands.json
 __pycache__/
