@@ -1,0 +1,29 @@
+# Model configuration, in the style of Triton Inference Server's config files.
+# Consumed by: engine_exe serve models/mnist.yaml
+
+name: mnist_ffn
+model_path: models/mnist_ffn.oien
+execution_provider: cpu
+
+# naive | reordered | tiled | packed | auto
+gemm_strategy: auto
+
+# Worker threads used for both intra-op (splitting GEMM rows) and inter-op
+# (running independent graph branches concurrently) parallelism.
+intra_op_threads: 4
+inter_op_parallel: true
+
+# Fuse activations into producers, fold constant subgraphs, drop dead nodes.
+graph_optimization: true
+
+# Recycle tensor buffers from a pooled arena instead of hitting the allocator.
+memory_pool: true
+profiling: false
+
+# Dynamic batching: coalesce queued requests until either max_batch_size have
+# arrived or max_queue_delay_microseconds has elapsed.
+max_batch_size: 64
+max_queue_delay_microseconds: 2000
+
+http_address: 127.0.0.1
+http_port: 8080
